@@ -1,0 +1,27 @@
+package component
+
+type InputParameters struct {
+	Typ          string // Type of input (e.g., text, password, email)
+	Name         string // Name of the input field
+	Placeholder  string // Placeholder text for the input
+	Value        string // Default value of the input
+	Required     bool   // Whether the input is required (true or false)
+	Disabled     bool   // Whether the input is disabled
+	Readonly     bool   // Whether the input is read-only
+	Autofocus    bool   // Whether to autofocus on this input
+	Autocomplete string // Autocomplete attribute (e.g., "on" or "off")
+	Multiple     bool   // Allows multiple values (for file and email types)
+	Size         int    // Width of the input in characters
+	Maxlength    int    // Maximum number of characters allowed
+	Minlength    int    // Minimum number of characters required
+	Pattern      string // Regular expression pattern for validation
+	Step         string // Legal number intervals for number inputs
+	Min          string // Minimum value for numeric inputs
+	Max          string // Maximum value for numeric inputs
+	Form         string // ID of the form that this input belongs to
+	Title        string // Tooltip text when hovering over the input
+}
+
+templ Input(params InputParameters) {
+	<input type={ params.Typ } name={ params.Name } placeholder={ params.Placeholder }/>
+}

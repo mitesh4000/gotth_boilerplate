@@ -1,0 +1,21 @@
+package user
+
+import (
+	"templeTest/model"
+	"templeTest/view/component"
+	"templeTest/view/layout"
+)
+
+templ Show(user model.User) {
+	@layout.Base() {
+		<h1>hello { user.Email }</h1>
+		@component.Input(component.InputParameters{
+			Typ:         "text",
+			Name:        "something",
+			Placeholder: "enter text here",
+			Disabled:    true,
+			Title:       "input",
+			Value:       "somthing",
+		})
+	}
+}
