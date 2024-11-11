@@ -2,20 +2,21 @@ package user
 
 import (
 	"templeTest/model"
-	"templeTest/view/component"
 	"templeTest/view/layout"
 )
 
 templ Show(user model.User) {
 	@layout.Base() {
-		<h1>hello { user.Email }</h1>
-		@component.Input(component.InputParameters{
-			Typ:         "text",
-			Name:        "something",
-			Placeholder: "enter text here",
-			Disabled:    true,
-			Title:       "input",
-			Value:       "somthing",
-		})
+		<main class="container mx-auto p-4">
+			<section class="mb-8">
+				<h2 class="text-xl font-bold mb-2">Welcome to My simple crud app website</h2>
+				<p>My intent here is to create boilerplate for the golang stack for personal use.</p>
+			</section>
+			<!-- Responsive Grid Example -->
+			<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				<div class="bg-white p-4 shadow rounded-lg">Column 1 Content</div>
+				<div class="bg-white p-4 shadow rounded-lg">Column 2 Content</div>
+			</section>
+		</main>
 	}
 }

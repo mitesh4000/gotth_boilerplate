@@ -1,0 +1,2 @@
+<div class=\"w-90 bg-slate-300 shadow rounded-md flex justify-center\">CRUD
+</div>

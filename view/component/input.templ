@@ -23,5 +23,8 @@ type InputParameters struct {
 }
 
 templ Input(params InputParameters) {
-	<input type={ params.Typ } name={ params.Name } placeholder={ params.Placeholder }/>
+	<div>
+		<label class="decoration-slate-500 text-sm" for={ params.Name }>{ params.Name }</label>
+		<input class="border border-s-violet-400 border-radius" type={ params.Typ } name={ params.Name } placeholder={ params.Placeholder }/>
+	</div>
 }

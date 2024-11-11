@@ -1,0 +1,6 @@
+<div><label class=\"decoration-slate-500 text-sm\" for=\"
+\">
+</label> <input class=\"border border-s-violet-400 border-radius\" type=\"
+\" name=\"
+\" placeholder=\"
+\"></div>
