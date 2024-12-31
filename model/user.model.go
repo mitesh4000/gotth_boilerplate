@@ -4,6 +4,8 @@ type User struct {
 	Email string
 }
 
+
+
 type Item struct {
 	ID       int     `gorm:"primaryKey" json:"id"`     // Item ID
 	Name     string  `gorm:"not null" json:"name"`     // Item Name

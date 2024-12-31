@@ -1,0 +1,149 @@
+package pages
+
+import "templeTest/view/layout"
+
+templ WallOfMemories() {
+	@layout.Base() {
+  <div class="bg-gray-100 p-4 overflow-hidden h-full cursor-grab" id="app">
+    <div class="grid grid-cols-6 grid-rows-6 gap-2" id="gallery">
+      <div class="col-span-1">
+        <image
+          src="https://placehold.co/300x300"
+          alt="Large square image"
+          width="{300}"
+          height="{300}"
+          class="rounded-xl object-cover w-full h-full"
+        />
+      </div>
+      <div class="col-span-2">
+        <image
+          src="https://placehold.co/600x300"
+          alt="Wide rectangle image"
+          width="{600}"
+          height="{300}"
+          class="rounded-lg object-cover w-full h-full"
+        />
+      </div>
+      <div class="row-span-2">
+        <image
+          src="https://placehold.co/300x500"
+          alt="Tall rectangle image"
+          width="{300}"
+          height="{500}"
+          class="rounded-lg object-cover w-full h-full"
+        />
+      </div>
+
+      <div class="col-span-1">
+        <image
+          src="https://placehold.co/300x300"
+          alt="Large square image"
+          width="{300}"
+          height="{300}"
+          class="rounded-xl object-cover w-full h-full"
+        />
+      </div>
+      <div class="col-span-2">
+        <image
+          src="https://placehold.co/600x300"
+          alt="Wide rectangle image"
+          width="{600}"
+          height="{300}"
+          class="rounded-lg object-cover w-full h-full"
+        />
+      </div>
+      <div class="row-span-2">
+        <image
+          src="https://placehold.co/300x500"
+          alt="Tall rectangle image"
+          width="{300}"
+          height="{500}"
+          class="rounded-lg object-cover w-full h-full"
+        />
+      </div>
+
+      <div class="col-span-1">
+        <image
+          src="https://placehold.co/300x300"
+          alt="Large square image"
+          width="{300}"
+          height="{300}"
+          class="rounded-xl object-cover w-full h-full"
+        />
+      </div>
+      <div class="col-span-2">
+        <image
+          src="https://placehold.co/600x300"
+          alt="Wide rectangle image"
+          width="{600}"
+          height="{300}"
+          class="rounded-lg object-cover w-full h-full"
+        />
+      </div>
+      <div class="row-span-2">
+        <image
+          src="https://placehold.co/300x500"
+          alt="Tall rectangle image"
+          width="{300}"
+          height="{500}"
+          class="rounded-lg object-cover w-full h-full"
+        />
+      </div>
+    </div>
+
+    <script>
+      const gallery = document.getElementById("gallery");
+      const app = document.getElementById("app");
+      const zoomInButton = document.getElementById("zoomIn");
+      const zoomOutButton = document.getElementById("zoomOut");
+
+      let scale = 1;
+      let isDragging = false;
+      let startX, startY, scrollLeft, scrollTop;
+      document.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        if (e.deltaY < 0) {
+          scale += 0.1;
+          gallery.style.transform = `scale(${scale})`;
+          // window.scrollBy(e.deltaX, -100);
+        }
+        if (e.deltaY > 0) {
+          scale -= 0.1;
+          gallery.style.transform = `scale(${scale})`;
+          // window.scrollBy(e.deltaX, 100);
+        }
+      });
+      document.addEventListener("mousedown", (e) => {
+        console.log("mousedown");
+        isDragging = true;
+        startX = e.pageX - window.scrollX;
+        startY = e.pageY - window.scrollY;
+        scrollLeft = window.scrollX;
+        scrollTop = window.scrollY;
+      });
+
+      document.addEventListener("mouseup", () => {
+        console.log("mouseup");
+        isDragging = false;
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - window.scrollX;
+        const y = e.pageY - window.scrollY;
+        const walkX = (x - startX) * scale;
+        const walkY = (y - startY) * scale;
+        window.scrollTo(scrollLeft - walkX, scrollTop - walkY);
+      });
+    </script>
+  
+  </div>
+	}
+}
